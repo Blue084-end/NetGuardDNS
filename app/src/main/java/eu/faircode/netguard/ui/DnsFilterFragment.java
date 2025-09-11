@@ -47,3 +47,20 @@ public class DnsFilterFragment extends Fragment {
         return view;
     }
 }
+
+
+
+/////bo sung
+
+
+
+
+List<String> domains = viewModel.getDomainList();
+DomainAdapter adapter = new DomainAdapter(domains, domain -> {
+    viewModel.removeDomain(domain);
+});
+domainList.setAdapter(adapter);
+
+
+
+            
