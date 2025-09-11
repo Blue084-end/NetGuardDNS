@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tên ứng dụng -->
+    <string name="app_name">NetGuardDNS</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_apps">Ứng dụng</string>
+    <string name="nav_dns">DNS Filter</string>
+    <string name="nav_settings">Cài đặt</string>
+
+    <!-- DNS Filter Fragment -->
+    <string name="dns_filter_title">Lọc DNS</string>
+    <string name="switch_dns_filter">Bật DNS Filter</string>
+    <string name="hint_domain_input">Nhập tên miền cần chặn</string>
+    <string name="btn_add_domain">Thêm tên miền</string>
+    <string name="btn_remove_domain">Xóa</string>
+
+    <!-- App Control Fragment -->
+    <string name="app_control_title">Quản lý ứng dụng</string>
+    <string name="switch_wifi">Wi-Fi</string>
+    <string name="switch_mobile">Dữ liệu di động</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">Cài đặt nâng cao</string>
+    <string name="enable_logging">Bật ghi log</string>
+    <string name="select_dns_server">Chọn DNS server</string>
+    <string name="export_config">Xuất cấu hình</string>
+
+    <!-- Thông báo & trạng thái -->
+    <string name="dns_filter_enabled">DNS Filter đã bật</string>
+    <string name="dns_filter_disabled">DNS Filter đã tắt</string>
+    <string name="domain_added">Đã thêm tên miền</string>
+    <string name="domain_removed">Đã xóa tên miền</string>
+    <string name="error_invalid_domain">Tên miền không hợp lệ</string>
+
+</resources>
