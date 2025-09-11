@@ -42,4 +42,26 @@ public class SettingsFragment extends Fragment {
         boolean isLoggingEnabled = requireContext()
                 .getSharedPreferences("settings", 0)
                 .getBoolean("logging_enabled", false);
-        switchLogging.setChecked
+        switchLogging.setChecked(isLoggingEnabled);
+
+        switchLogging.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            requireContext()
+                .getSharedPreferences("settings", 0)
+                .edit()
+                .putBoolean("logging_enabled", isChecked)
+                .apply();
+            Toast.makeText(getContext(),
+                isChecked ? "Đã bật ghi log" : "Đã tắt ghi log",
+                Toast.LENGTH_SHORT).show();
+        });
+
+        // TODO: Load danh sách DNS server vào spinnerDns
+
+        btnExport.setOnClickListener(v -> {
+            // TODO: Thực hiện xuất cấu hình
+            Toast.makeText(getContext(),
+                "Đã xuất cấu hình thành công",
+                Toast.LENGTH_SHORT).show();
+        });
+    }
+}
