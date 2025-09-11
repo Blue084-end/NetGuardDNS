@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/text_settings_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textAppearance="@style/AppTitleText"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <!-- Switch bật ghi log -->
+        <Switch
+            android:id="@+id/switch_logging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_logging"
+            android:textAppearance="@style/AppSwitch"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <!-- Spinner chọn DNS server -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_dns_server"
+            android:textSize="@dimen/text_medium"
+            android:layout_marginBottom="@dimen/margin_small" />
+
+        <Spinner
+            android:id="@+id/spinner_dns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <!-- Nút xuất cấu hình -->
+        <Button
+            android:id="@+id/btn_export_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/export_config"
+            style="@style/AppButton" />
+
+    </LinearLayout>
+</ScrollView>
