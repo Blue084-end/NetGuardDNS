@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/text_dns_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dns_filter_title"
+        android:textAppearance="@style/AppTitleText"
+        android:layout_marginBottom="@dimen/margin_medium" />
+
+    <!-- Switch bật/tắt DNS Filter -->
+    <Switch
+        android:id="@+id/switch_dns_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/switch_dns_filter"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textAppearance="@style/AppSwitch" />
+
+    <!-- Nhập tên miền cần chặn -->
+    <EditText
+        android:id="@+id/edit_domain_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_domain_input"
+        android:inputType="textUri"
+        android:textAppearance="@style/AppEditText"
+        android:layout_marginBottom="@dimen/margin_small" />
+
+    <!-- Nút thêm tên miền -->
+    <Button
+        android:id="@+id/btn_add_domain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_domain"
+        style="@style/AppButton"
+        android:layout_marginBottom="@dimen/margin_medium" />
+
+    <!-- Danh sách tên miền bị chặn -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/domain_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
