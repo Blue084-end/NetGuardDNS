@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Theme mặc định của ứng dụng -->
+    <style name="Theme.NetGuardDNS" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Màu nền chính -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Màu nền phụ -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Màu nền giao diện -->
+        <item name="android:windowBackground">@color/background</item>
+
+        <!-- Font mặc định -->
+        <item name="android:fontFamily">@font/roboto</item>
+
+        <!-- Tắt ActionBar mặc định -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Tối ưu cho Dark Mode -->
+        <item name="android:forceDarkAllowed">true</item>
+    </style>
+
+</resources>
