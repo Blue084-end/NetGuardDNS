@@ -1,0 +1,79 @@
+package eu.faircode.netguard.ui;
+
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
+import eu.faircode.netguard.R;
+
+public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHolder> {
+
+    public interface OnToggleListener {
+        void onWifiToggle(String packageName, boolean enabled);
+        void onMobileToggle(String packageName, boolean enabled);
+    }
+
+    private final List<ApplicationInfo> appList;
+    private final PackageManager packageManager;
+    private final OnToggleListener listener;
+
+    public AppListAdapter(List<ApplicationInfo> appList, PackageManager packageManager, OnToggleListener listener) {
+        this.appList = appList;
+        this.packageManager = packageManager;
+        this.listener = listener;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_app, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        ApplicationInfo appInfo = appList.get(position);
+        String appName = packageManager.getApplicationLabel(appInfo).toString();
+        Drawable appIcon = packageManager.getApplicationIcon(appInfo);
+
+        holder.appName.setText(appName);
+        holder.appIcon.setImageDrawable(appIcon);
+
+        holder.switchWifi.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            listener.onWifiToggle(appInfo.packageName, isChecked);
+        });
+
+        holder.switchMobile.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            listener.onMobileToggle(appInfo.packageName, isChecked);
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return appList.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView appIcon;
+        TextView appName;
+        Switch switchWifi;
+        Switch switchMobile;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            appIcon = itemView.findViewById(R.id.app_icon);
+            appName = itemView.findViewById(R.id.app_name);
+            switchWifi = itemView.findViewById(R.id.switch_wifi);
+            switchMobile = itemView.findViewById(R.id.switch_mobile);
+        }
+    }
+}
