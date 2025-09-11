@@ -26,3 +26,39 @@ public class DnsFilterViewModel extends ViewModel {
         return domainList;
     }
 }
+
+
+
+
+///// bo sung
+
+
+public class DnsFilterViewModel extends ViewModel {
+    private boolean filterEnabled = false;
+
+    public boolean isFilterEnabled() {
+        return filterEnabled;
+    }
+
+    public void setFilterEnabled(boolean enabled) {
+        this.filterEnabled = enabled;
+        if (enabled) {
+            DnsServer.start();
+        } else {
+            DnsServer.stop();
+        }
+    }
+
+    public void addDomain(String domain) {
+        FilterList.add(domain);
+    }
+
+    public void removeDomain(String domain) {
+        FilterList.remove(domain);
+    }
+
+    public List<String> getDomainList() {
+        return FilterList.getAll();
+    }
+}
+
