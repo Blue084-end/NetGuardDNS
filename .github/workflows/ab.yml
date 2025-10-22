@@ -59,3 +59,9 @@ jobs:
       with:
         name: personaldnsfilter-apk
         path: app/build/outputs/apk/release/*.apk
+
+    - name: Grant execute permission to Gradle
+      run: chmod +x ./gradlew
+
+    - name: Build APK with stacktrace
+      run: ./gradlew assembleRelease --stacktrace
